@@ -3,53 +3,48 @@
 "use strict";
 
 class main {
-     constructor() {
-          main.prepApp();
-          main.handleBegin();
-          main.handleEnd();
-          main.handleQuestion();
-     }
+    constructor() {
+        main.setNumberOfDice();
+        main.rollDice();
 
-     static prepApp() {
-          document.getElementById('SSL_Instructions').style.display = 'none';
-          document.getElementById('endDiv').style.display = 'none';
-          document.getElementById('sure').style.display = 'none';
-     }
+    }
 
-     static handleBegin() {
-          document.getElementById('begin').addEventListener('click', () => {
-               document.getElementById('SSL_Instructions').style.display = 'block';
-               document.getElementById('endDiv').style.display = 'block';
-          });
-     }
+    static setNumberOfDice() {
+        let numDice;
+        const MIN_DICE = 1, MAX_DICE = 10;
 
-     static handleEnd() {
-          document.getElementById('end').addEventListener('click', () => {
-               document.getElementById('SSL_Instructions').style.display = 'none';
-               document.getElementById('top').style.visibility = 'hidden';
-               document.getElementById('endDiv').style.display = 'none';
-               document.getElementById('sure').style.display = 'block';
-          });
-     }
+        while ((typeof numDice === `undefined` || isNaN(numDice)) || (numDice < MIN_DICE) || (numDice > MAX_DICE)) {
+            numDice = document.getElementById('numberOfDice');
+        }
 
-     static handleQuestion() {
-          const ANSWERS = document.forms['theForm'].elements['question'];
-          for (let i = 0; i < ANSWERS.length; i++) {
-               ANSWERS[i].addEventListener('click', () => {
-                    if (ANSWERS[i].value == 1) {
-                         window.open('http://zombo.com', '_self', false);
-                    } else {
-                         window.location.reload();
-                    }
-               });
-          }
-     }
+    }
+
+    static rollDice() {
+        let numDice = document.getElementsByID('numberDice').value;
+        if (document.getElementById('a-option').checked) {
+            while (indivResults.length < numDice) {
+                indivResults[indivResults.length] = Math.floor(1 + Math.random() * 4);
+            }
+        } else if (document.getElementById('b-option').checked) {
+            while (indivResults.length < numDice) {
+                indivResults[indivResults.length] = Math.floor(1 + Math.random() * 6);
+            }
+        } else if (document.getElementById('c-option').checked) {
+            while (indivResults.length < numDice) {
+                indivResults[indivResults.length] = Math.floor(1 + Math.random() * 8);
+            }
+        } else if (document.getElementById('d-option').checked) {
+            while (indivResults.length < numDice) {
+                indivResults[indivResults.length] = Math.floor(1 + Math.random() * 12);
+            }
+        } else if (document.getElementById('e-option').checked) {
+            while (indivResults.length < numDice) {
+                indivResults[indivResults.length] = Math.floor(1 + Math.random() * 20);
+            }
+        }
+    }
 }
 
 window.addEventListener('load', () => {
-     new main();
+    new main();
 });
-
-function numberDiceChoice() {
-    numberDice =
-}
