@@ -1,0 +1,49 @@
+<% include public/views/header.ejs %>
+
+<div class="row">
+    <div class="small-10 columns">
+        <div class="range-slider" data-slider data-options="display_selector: #days-off-count; initial: 20;">
+            <span class="range-slider-handle" role="slider" tabindex="0"></span>
+            <span class="range-slider-active-segment"></span>
+        </div>
+    </div>
+    <div class="small-2 columns">
+        <input type="number" id="days-off-count" value="28" />
+    </div>
+</div>
+
+<div class="container">
+
+    <h2>1990'S DICE ROLLER!!!!!!!!!!!!111</h2>
+
+    <ul>
+        <li>
+            <input type="radio" id="f-option" name="selector">
+            <label for="f-option">d4</label>
+
+            <div class="check"></div>
+        </li>
+
+        <li>
+            <input type="radio" id="s-option" name="selector">
+            <label for="s-option">d6</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="t-option" name="selector">
+            <label for="t-option">d20</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+    </ul>
+</div>
+
+<div class="large-6 large-centered columns">
+    <div a class="button large" id="button" align="center">
+        ROOOOOOOLLLLL!!!1!!!1!!!1!!
+    </div>
+</div>
+
+<% include public/views/footer.ejs %>
